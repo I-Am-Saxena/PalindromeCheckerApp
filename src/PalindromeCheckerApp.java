@@ -7,13 +7,16 @@ public class PalindromeCheckerApp {
         System.out.println("Welcome to Palindrome Checker Application");
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a word/phrase to check: ");
-        String input = sc.nextLine();
+        System.out.print("Enter words/phrases separated by comma: ");
+        String[] words = sc.nextLine().split(",");
 
-        if(isPalindrome(input)){
-            System.out.println("\"" + input + "\" is a Palindrome");
-        } else {
-            System.out.println("\"" + input + "\" is not a Palindrome");
+        for(String word : words){
+            word = word.trim();
+            if(isPalindrome(word)){
+                System.out.println("\"" + word + "\" is a Palindrome");
+            } else {
+                System.out.println("\"" + word + "\" is not a Palindrome");
+            }
         }
 
         sc.close();

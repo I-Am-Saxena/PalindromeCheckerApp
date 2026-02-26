@@ -4,18 +4,35 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+        boolean running = true;
+
         System.out.println("Welcome to Palindrome Checker Application");
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter words/phrases separated by comma: ");
-        String[] words = sc.nextLine().split(",");
+        while(running){
+            System.out.println("\nMenu:");
+            System.out.println("1. Check a word/phrase");
+            System.out.println("2. Exit");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine(); // consume newline
 
-        for(String word : words){
-            word = word.trim();
-            if(isPalindrome(word)){
-                System.out.println("\"" + word + "\" is a Palindrome");
-            } else {
-                System.out.println("\"" + word + "\" is not a Palindrome");
+            switch(choice){
+                case 1:
+                    System.out.print("Enter word/phrase: ");
+                    String input = sc.nextLine();
+                    if(isPalindrome(input)){
+                        System.out.println("\"" + input + "\" is a Palindrome");
+                    } else {
+                        System.out.println("\"" + input + "\" is not a Palindrome");
+                    }
+                    break;
+                case 2:
+                    running = false;
+                    System.out.println("Exiting application. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
             }
         }
 
